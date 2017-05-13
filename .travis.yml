@@ -32,10 +32,10 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   - >
-    which iodine && (echo 'Check iodine client exists: pass' && exit 0) || (echo 'Check iodine client exists: fail' && exit 1)
+    which iodine 2>&1 && (echo 'Check iodine client exists: pass' && exit 0) || (echo 'Check iodine client exists: fail' && exit 1)
 
   - >
-    which iodined && (echo 'Check iodine daemon exists: pass' && exit 0) || (echo 'Check iodine daemon exists: fail' && exit 1)
+    which iodined 2>&1 && (echo 'Check iodine daemon exists: pass' && exit 0) || (echo 'Check iodine daemon exists: fail' && exit 1)
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
