@@ -1,5 +1,6 @@
 Iodine
 =========
+[![Build Status](https://travis-ci.org/robgmills/ansible-iodine.svg?branch=master)](https://travis-ci.org/robgmills/ansible-iodine)
 
 Installs [iodine](http://code.kryo.se/iodine/), a tool that lets one "tunnel IPv4 data through a DNS server."
 
