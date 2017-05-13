@@ -44,6 +44,11 @@ script:
     && (echo 'Check iodined args: pass' && exit 0)
     || (echo 'Check iodined args: fail' && exit 1)
 
+  - >
+    sudo grep -P '^IODINED_PASSWORD=".*"' /etc/default/iodine 2>&1
+    && (echo 'Check iodined password: pass' && exit 0)
+    || (echo 'Check iodined password: fail' && exit 1)
+
   - "sudo service iodined status"
 
 #  - > 

@@ -1,4 +1,9 @@
 ---
+- name: Validate iodined config
+  fail: 
+    msg: "Must set value for `iodined_passord` if `iodined_enabled`"
+  when: iodined_enabled and iodined_password is undefined
+
 - name: Enable iodined service
   service: name=iodined enabled=yes
 
@@ -15,8 +20,8 @@
     replace: "IODINED_ARGS=\"{{ iodined_ip_address }} {{ iodined_domain }}\""
   notify: restart iodined
 
-#- name: Set iodined password
-#  replace:
-#    path: /etc/defaults/iodine
-#    regexp: '^IODINED_PASSWORD=""$'
-#    replace: ''
+- name: Set iodined password
+  replace:
+    path: /etc/default/iodine
+    regexp: '^IODINED_PASSWORD=""$'
+    replace: "IODINED_PASSWORD=\"{{ iodined_password }}\""

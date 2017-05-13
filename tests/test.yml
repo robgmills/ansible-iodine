@@ -3,5 +3,6 @@
   remote_user: root
   vars:
     iodined_enabled: true
+    iodined_password: myPassword
   roles:
     - ansible-iodine
