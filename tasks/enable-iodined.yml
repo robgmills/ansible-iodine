@@ -4,13 +4,13 @@
 
 - name: Enable iodined in service config
   replace:
-    path: /etc/defaults/iodine
+    path: /etc/default/iodine
     regexp: '^START_IODINED="false"$'
     replace: 'START_IODINED="true"'
 
 - name: Set iodined arguments
   replace:
-    path: /etc/defaults/iodine
+    path: /etc/default/iodine
     regexp: '^IODINED_ARGS=""$'
     replace: "IODINED_ARGS=\"{{ iodined_ip_address }} {{ iodined_domain }}\""
   notify: restart iodined
