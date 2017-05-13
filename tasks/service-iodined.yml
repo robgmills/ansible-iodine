@@ -9,7 +9,8 @@
   replace:
     path: /etc/defaults/iodine
     regexp: '^IODINED_ARGS=""$'
-    replace: 'IODINED_ARGS="{{ iodined_ip_address }} {{ iodined_domain }}"'
+    replace: "IODINED_ARGS=\"{{ iodined_ip_address }} {{ iodined_domain }}\""
+  notify: restart iodined
 
 #- name: Set iodined password
 #  replace:
