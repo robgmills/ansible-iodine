@@ -1,3 +1,6 @@
 ---
 - name: Install iodine
   apt: name=iodine state=present
+
+- include: service-iodined.yml
+  when: iodined_enabled

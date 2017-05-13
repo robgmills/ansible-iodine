@@ -37,5 +37,10 @@ script:
   - >
     which iodined 2>&1 && (echo 'Check iodine daemon exists: pass' && exit 0) || (echo 'Check iodine daemon exists: fail' && exit 1)
 
+  - >
+    grep "^IODINED_ARGS=\"[\d\.]*\"$" /etc/defaults/iodine 2>&1
+    && (echo 'Check iodined args: pass' && exit 0)
+    || (echo 'Check iodined args: fail' && exit 1)
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

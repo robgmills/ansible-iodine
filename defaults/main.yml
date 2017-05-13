@@ -1,0 +1,5 @@
+---
+iodined_enabled: false
+iodined_ip_address: 192.168.99.1
+iodined_domain: tunnel1host.mytunnel.com
+iodined_password: ""
