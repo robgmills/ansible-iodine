@@ -1,5 +1,8 @@
 ---
-- name: Enable iodined daemon
+- name: Enable iodined service
+  service: name=iodined enabled=yes
+
+- name: Enable iodined in service config
   replace:
     path: /etc/defaults/iodine
     regexp: '^START_IODINED="false"$'

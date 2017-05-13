@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    iodined_enabled: true
   roles:
     - ansible-iodine

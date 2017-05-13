@@ -1,0 +1,4 @@
+---
+- name: Disable iodined
+  service: name=iodined enabled=no
+  notify: stop iodined

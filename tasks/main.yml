@@ -7,5 +7,8 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include: service-iodined.yml
+- include: enable-iodined.yml
   when: iodined_enabled
+
+- include: disable-iodined.yml
+  when: not iodined_enabled
