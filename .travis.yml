@@ -44,6 +44,8 @@ script:
     && (echo 'Check iodined args: pass' && exit 0)
     || (echo 'Check iodined args: fail' && exit 1)
 
+  - > sudo service iodined status
+
   - > 
     sudo service iodined status | grep "Active: active \(running\)"
     && (echo 'Check that iodined is running: pass' && exit 0)
@@ -53,6 +55,11 @@ script:
     netstat -an | grep 0.0.0.0:53
     && (echo 'Check that port 53 is `LISTEN`ing: pass' && exit 0)
     || (echo 'Check that iodine is `LISTEN`ing: fail' && exit 1)
+
+  - >
+    dig @localhost dnstunnel.robgmills.com
+    && (echo 'Check that iodined responds to DNS queries: pass' && exit 0)
+    || (echo 'Check that iodined responds to DNS queries: fail' && exit 1)
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
